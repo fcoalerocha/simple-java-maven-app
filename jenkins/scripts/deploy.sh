@@ -23,4 +23,5 @@ set +x
 echo 'The following command runs and outputs the execution of your Java'
 echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
 set -x
-docker build -e NAME:${NAME} -e VERSION:${VERSION} -t test .
+docker build -t test .
+docker run --name jenkins-deploy -e NAME=${NAME} -e VERSION=${VERSION} test
