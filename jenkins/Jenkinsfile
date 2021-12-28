@@ -26,9 +26,9 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-        stage('Dcoker') {
+        stage('Docker') {
             steps {
-                sh 'docker build -e ${NAME} -e ${VERSION} -t test .'
+                sh './jenkins/scripts/deploy.sh'
             }
         }
     }
